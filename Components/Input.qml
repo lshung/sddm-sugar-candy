@@ -51,7 +51,7 @@ Column {
                     text: model.name
                     font.pointSize: root.font.pointSize * 0.8
                     font.capitalization: Font.Capitalize
-                    color: selectUser.highlightedIndex === index ? root.palette.highlight.hslLightness >= 0.7 ? "#444" : "white" : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight.hslLightness >= 0.8 ? "#444" : root.palette.highlight : "white"
+                    color: selectUser.highlightedIndex === index ? root.palette.highlight.hslLightness >= 0.7 ? config.BackgroundColor : config.MainColor : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight.hslLightness >= 0.8 ? config.BackgroundColor : root.palette.highlight : config.MainColor
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -444,7 +444,7 @@ Column {
 
             contentItem: Text {
                 text: parent.text
-                color: config.OverrideLoginButtonTextColor != "" ? config.OverrideLoginButtonTextColor : root.palette.highlight.hslLightness >= 0.7 ? "#444" : "white"
+                color: config.OverrideLoginButtonTextColor != "" ? config.OverrideLoginButtonTextColor : root.palette.highlight.hslLightness >= 0.7 ? config.BackgroundColor : config.MainColor
                 font.pointSize: root.font.pointSize
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
@@ -453,7 +453,7 @@ Column {
 
             background: Rectangle {
                 id: buttonBackground
-                color: "white"
+                color: config.MainColor
                 opacity: 0.2
                 radius: config.RoundCorners || 0
             }
@@ -469,6 +469,8 @@ Column {
                     }
                     PropertyChanges {
                         target: loginButton.contentItem
+                        color: Qt.darker(config.BackgroundColor, 1.1)
+                        opacity: 1
                     }
                 },
                 State {
@@ -507,6 +509,20 @@ Column {
                     }
                     PropertyChanges {
                         target: loginButton.contentItem;
+                        opacity: 1
+                    }
+                },
+                State {
+                    name: "disabled"
+                    when: !loginButton.enabled
+                    PropertyChanges {
+                        target: buttonBackground;
+                        color: config.MainColor;
+                        opacity: 1
+                    }
+                    PropertyChanges {
+                        target: loginButton.contentItem;
+                        color: config.BackgroundColor;
                         opacity: 1
                     }
                 }

@@ -45,7 +45,7 @@ Item {
             contentItem: Text {
                 text: model.name
                 font.pointSize: root.font.pointSize * 0.8
-                color: selectSession.highlightedIndex === index ? root.palette.highlight.hslLightness >= 0.7 ? "#444444" : "white" : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight.hslLightness >= 0.8 ? "#444444" : root.palette.highlight : "white"
+                color: selectSession.highlightedIndex === index ? root.palette.highlight.hslLightness >= 0.7 ? config.BackgroundColor: config.MainColor : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight.hslLightness >= 0.8 ? config.BackgroundColor: root.palette.highlight : config.MainColor
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }

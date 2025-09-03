@@ -36,7 +36,7 @@ Item {
                 text: model.name
                 font.pointSize: root.font.pointSize * 0.8
                 font.capitalization: Font.Capitalize
-                color: selectUser.highlightedIndex === index ? "white" : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight : "white"
+                color: selectUser.highlightedIndex === index ? config.MainColor : root.palette.window.hslLightness >= 0.8 ? root.palette.highlight : config.MainColor
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
