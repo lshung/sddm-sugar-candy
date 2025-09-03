@@ -1,0 +1,7 @@
+[SDDM Theme]
+Name=Sugar Candy
+Description=SDDM theme forked from Kangie/sddm-sugar-candy
+Author=lshung
+Version=1.0.0
+MainScript=Main.qml
+ConfigFile=theme.conf
