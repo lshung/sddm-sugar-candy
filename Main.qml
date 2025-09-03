@@ -210,7 +210,7 @@ Pane {
                                config.BackgroundImageVAlignment == "bottom" ?
                                Image.AlignBottom : Image.AlignVCenter
 
-            source: config.background || config.Background
+            source: config.RandomBackground == "true" ? config.Backgrounds.split(" ")[Math.floor(Math.random() * config.Backgrounds.split(" ").length)] : config.Background
             fillMode: config.ScaleImageCropped == "true" ? Image.PreserveAspectCrop : Image.PreserveAspectFit
             asynchronous: true
             cache: true
